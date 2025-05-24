@@ -50,7 +50,7 @@ namespace TravelProje2
             return cmd.ExecuteNonQuery();
             this.Kapat();
         }
-        public DataTable GetTable(string query,Dictionary<string,object>parameters=null)
+        public DataTable TGetTable(string query,Dictionary<string,object>parameters=null)
         {
             //gridvie datalist tüm verileri çekmek için kullan method
             this.Ac();
@@ -60,6 +60,21 @@ namespace TravelProje2
             {
                 cmd.Parameters.AddWithValue(param.Key, param.Value);
             }
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
+            DataTable dt = new DataTable();
+            da.Fill(dt);
+            return dt;
+
+
+
+
+            this.Kapat();
+        }
+        public DataTable GetTable(string query )
+        {
+            //gridvie datalist tüm verileri çekmek için kullan method
+            this.Ac();
+            SqlCommand cmd = new SqlCommand(query, _conn);
             SqlDataAdapter da = new SqlDataAdapter(cmd);
             DataTable dt = new DataTable();
             da.Fill(dt);

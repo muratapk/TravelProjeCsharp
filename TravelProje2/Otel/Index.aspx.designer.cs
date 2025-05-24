@@ -11,17 +11,8 @@ namespace TravelProje2.Otel
 {
 
 
-    public partial class OtelListe
+    public partial class Index
     {
-
-        /// <summary>
-        /// HyperLink1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink HyperLink1;
 
         /// <summary>
         /// GridView1 control.
