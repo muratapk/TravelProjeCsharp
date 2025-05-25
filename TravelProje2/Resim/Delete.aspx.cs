@@ -13,5 +13,24 @@ namespace TravelProje2.Resim
         {
 
         }
+
+        protected void Button2_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("Index.aspx");
+        }
+        Baglan conn = new Baglan();
+        protected void Button1_Click(object sender, EventArgs e)
+        {
+            int Id = Convert.ToInt32(Request.QueryString["Id"]);
+            string cumle = "Delete from otelresimler where ResimId=@Id";
+            Dictionary<string,object> dic = new Dictionary<string,object>();
+            dic.Add("@Id", Id);
+            int sonuc = conn.ExecuteCommand(cumle, dic);
+            if (sonuc > 0)
+            {
+                Response.Write("Kayıt Silindi");
+                Response.Write("<script>alert('Kayıt Silindi')</script>");
+            }
+        }
     }
 }
