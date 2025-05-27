@@ -5,6 +5,7 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Security.Policy;
 using System.Web;
+using System.Web.UI.HtmlControls;
 
 namespace TravelProje2
 {
@@ -82,6 +83,19 @@ namespace TravelProje2
 
 
 
+
+            this.Kapat();
+        }
+        public SqlDataReader GetDataReader(string query,Dictionary<string,object>param=null)
+        {
+            this.Ac();
+            SqlCommand cmd = new SqlCommand(query, _conn);
+            cmd.Parameters.Clear();
+            foreach(var item in param)
+            {
+                cmd.Parameters.AddWithValue(item.Key, item.Value);
+            }
+            return cmd.ExecuteReader();
 
             this.Kapat();
         }
